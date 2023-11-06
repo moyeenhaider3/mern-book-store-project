@@ -22,7 +22,6 @@ router.get("/",async (req,res)=> {
 router.get("/:id",async (req,res)=> {
     try {
         const {id}=req.params;
-        console.log(id+"view single book");
 
         const result=await Book.findById(id);
         // return res.status(200).json({
@@ -49,7 +48,6 @@ router.put("/:id",async(req,res)=>{
            return res.status(303).send("Please send all required fields");
         }
         const {id}=req.params;
-        console.log(id+"updating");
 
         const result=await Book.findByIdAndUpdate(id,req.body);
         if(!result){
@@ -73,7 +71,6 @@ router.post("/",async(req,res)=>{
             author:req.body.author,
             publishYear:req.body.publishYear
         }
-        console.log(newBook+"new book is here");
         const book=await Book.create(newBook);
        return res.status(200).send(book);
     } catch (error) {
@@ -88,7 +85,6 @@ router.delete("/:id",async(req,res)=>{
     try {
      const {id}= req.params;
      const result=await Book.findByIdAndDelete(id);
-        console.log(id+"deleting");
      if(!result){
         return res.status(404).send("Book not found");
     }else{
