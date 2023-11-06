@@ -12,15 +12,15 @@ app.use(express.json());
 //middleware for CORS error
 
 //allow all types of requests cors(*) 
-// app.use(cors());
+app.use(cors());
 
-app.use(cors({
-    methods:["GET","PUT","POST","DELETE"],
-    origin:"http://localhost:5555",
-    allowedHeaders:["Content-Type"]
-}));
+// app.use(cors({
+//     methods:["GET","PUT","POST","DELETE"],
+//     origin:"http://localhost:5555",
+//     allowedHeaders:["Content-Type"]
+// }));
 
-app.get("/",(req,res)=>res.status(676).send("Welcome we are just coming"));
+// app.get("/",(req,res)=>res.status(676).send("Welcome we are just coming"));
 //middleware to route to books
 app.use("/books",bookRoutes);
 

@@ -1,8 +1,8 @@
 enum AppRoutes{
     HOME="/",
-    CREATE="/book/create",
-    EDIT="/book/edit",
-    SHOW="/books/show",
+    CREATE="/books/create",
+    EDIT="/books/edit",
+    SHOW="/books/details",
     DELETE="/books/delete",
 
 }
