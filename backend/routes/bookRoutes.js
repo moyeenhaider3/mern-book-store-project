@@ -22,6 +22,7 @@ router.get("/",async (req,res)=> {
 router.get("/:id",async (req,res)=> {
     try {
         const {id}=req.params;
+
         const result=await Book.findById(id);
         // return res.status(200).json({
         //     count:books.length,
@@ -83,8 +84,7 @@ router.post("/",async(req,res)=>{
 router.delete("/:id",async(req,res)=>{
     try {
      const {id}= req.params;
-     const result= Book.findByIdAndDelete(id);
-
+     const result=await Book.findByIdAndDelete(id);
      if(!result){
         return res.status(404).send("Book not found");
     }else{
