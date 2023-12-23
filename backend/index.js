@@ -20,9 +20,9 @@ app.use(cors({
     allowedHeaders:["Content-Type"]
 }));
 
-app.get("/",(req,res)=>res.status(200).send("Welcome we are just coming"));
 //middleware to route to books
 app.use("/books",bookRoutes);
+app.get("/",(req,res)=>res.status(200).send("Welcome Home"));
 
 
 
