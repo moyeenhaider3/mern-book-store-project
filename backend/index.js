@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
-import { FRONTEND_URL, PORT, mongodbURL } from "./config.js";
+import { PORT, mongodbURL } from "./config.js";
 import bookRoutes from "./routes/bookRoutes.js";
 
 const app=express();
@@ -14,12 +14,12 @@ app.use(express.json());
 //allow all types of requests cors(*) 
 app.use(cors());
 
-app.use(cors({
-    methods:["GET","PUT","POST","DELETE"],
-    origin: [FRONTEND_URL],
-    credentials:true,
-    allowedHeaders:["Content-Type"]
-}));
+// app.use(cors({
+//     methods:["GET","PUT","POST","DELETE"],
+//     origin: [FRONTEND_URL],
+//     credentials:true,
+//     allowedHeaders:["Content-Type"]
+// }));
 
 //middleware to route to books
 app.use("/books",bookRoutes);
