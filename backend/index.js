@@ -12,6 +12,7 @@ app.use(express.json());
 //middleware for CORS error
 
 //allow all types of requests cors(*) 
+app.use(cors());
 
 app.use(cors({
     methods:["GET","PUT","POST","DELETE"],
