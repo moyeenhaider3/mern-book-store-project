@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BooksCard from '../components/home/BooksCard';
 import BooksTable from '../components/home/BooksTable';
+import { serverUrl } from '../main';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -14,8 +15,8 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/books')
-      .then((response) => {
+    .get(`${serverUrl}/books`)
+    .then((response) => {
         setBooks(response.data);
         setLoading(false);
       })
