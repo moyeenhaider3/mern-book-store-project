@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { serverUrl } from '../main';
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -15,8 +16,8 @@ const DeleteBook = () => {
     setLoading(true);
     console.log(id+"deleting");
     axios
-      .delete(`http://localhost:5555/books/${id}`)
-      .then(() => {
+    .delete(`${serverUrl}/books/${id}`)
+    .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Deleted successfully', { variant: 'success' });
         navigate('/');
